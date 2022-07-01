@@ -22,3 +22,9 @@ AWS Secret Access Key [None]:
 Default region name [None]: us-east-1
 Default output format [None]:
 ````
+
+Use pcluster client to manage the cluster in the specified region.
+
+````
+$ pcluster list-clusters
+````
