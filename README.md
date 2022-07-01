@@ -10,6 +10,8 @@ $ pip install boto3 boto3[crt]
 
 Install [AWS CLI](http://aws.amazon.com/cli/).
 
+Configure aws client locally.
+
 ````
 $ aws configure
 AWS Access Key ID [None]:
