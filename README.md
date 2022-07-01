@@ -6,7 +6,7 @@ A Python-based toolkit for AWS Hybrid Cloud Resource Management, using Boto3
 $ pip install boto3 boto3[crt] aws-parallelcluster
 ````
 
-We use [aws-parallelcluster](https://aws-parallelcluster.readthedocs.io/en/latest/getting_started.html) to manage the cluster.
+We use [aws-parallelcluster](https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-after-install.html) to manage the cluster.
 
 
 ## Configure AWS
