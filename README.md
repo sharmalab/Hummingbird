@@ -19,7 +19,7 @@ Configure aws client locally.
 $ aws configure
 AWS Access Key ID [None]:
 AWS Secret Access Key [None]:
-Default region name [None]: us-east-1
+Default region name [None]: us-east-2
 Default output format [None]:
 ````
 
