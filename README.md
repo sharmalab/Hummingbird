@@ -28,3 +28,12 @@ Use pcluster client to manage the cluster in the specified region.
 ````
 $ pcluster list-clusters
 ````
+
+
+## Development
+
+We aim Hummingbird to have two major steps.
+
+Step 1 - A boto3/Python method to start a ParallelCluster with Slurm, with images/pipelines. Our sample Cell Profiler use case has create csv method needs to be used, together with initiating with the AMI.
+
+Step 2 - Submitting the job array to Slurm.
