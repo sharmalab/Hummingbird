@@ -1,0 +1,45 @@
+{
+  "IamFleetRole": "arn:aws:iam::621508296309:role/aws-ec2-spot-fleet-tagging-role",
+  "AllocationStrategy": "lowestPrice",
+  "TerminateInstancesWithExpiration": true,
+  "LaunchSpecifications": [
+    {
+      "ImageId": "ami-58f5db3d",
+      "KeyName": "ssh-rsa-aws",
+      "IamInstanceProfile": {
+        "Arn": "arn:aws:iam::621508296309:instance-profile/ecsInstanceRole"
+      },
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/xvda",
+          "Ebs": {
+            "DeleteOnTermination": true,
+            "VolumeType": "gp2",
+            "VolumeSize": 8,
+            "SnapshotId": "snap-008391595528156c4"
+          }
+        },
+        {
+          "DeviceName": "/dev/xvdcz",
+          "Ebs": {
+            "DeleteOnTermination": true,
+            "VolumeType": "gp2"
+          }
+        }
+      ],
+      "NetworkInterfaces": [
+        {
+          "DeviceIndex": 0,
+          "SubnetId": "subnet-b5c2f5dd",
+          "DeleteOnTermination": true,
+          "AssociatePublicIpAddress": true,
+          "Groups": [
+            "sg-2b913f44"
+          ]
+        }
+      ]
+    }
+  ],
+  "Type": "maintain"
+}
+

@@ -1,0 +1,7 @@
+{"MONITOR_FLEET_ID" : "sfr-a320b116-7a02-4317-aade-488d27ced6f0",
+"MONITOR_APP_NAME" : "Marklein_Microglia",
+"MONITOR_ECS_CLUSTER" : "default",
+"MONITOR_QUEUE_NAME" : "Marklein_MicrogliaQueue",
+"MONITOR_BUCKET_NAME" : "cmat-thrust1",
+"MONITOR_LOG_GROUP_NAME" : "Marklein_Microglia",
+"MONITOR_START_TIME" : "1657217312982"}
