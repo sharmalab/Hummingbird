@@ -1,0 +1,21 @@
+Region: us-east-2
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: t2.micro
+  Networking:
+    SubnetId: subnet-00a4be39efc43bb4c
+  Ssh:
+    KeyName: hummingbird
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: queue1
+    ComputeResources:
+    - Name: t2micro
+      InstanceType: t2.micro
+      MinCount: 0
+      MaxCount: 10
+    Networking:
+      SubnetIds:
+      - subnet-0b1d6287d85ea37a3
