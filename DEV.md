@@ -1,3 +1,4 @@
+```
 $ pcluster configure --config cluster-config.yaml
 INFO: Configuration file cluster-config.yaml will be written.
 Press CTRL-C to interrupt the procedure.
@@ -63,3 +64,4 @@ Status: parallelclusternetworking-pubpriv-20220714152818 - CREATE_COMPLETE
 The stack has been created.
 Configuration file written to cluster-config.yaml
 You can edit your configuration file or simply run 'pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name cluster-name --region us-east-2' to create your cluster.
+```
