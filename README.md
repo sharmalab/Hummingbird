@@ -29,6 +29,10 @@ Use pcluster client to manage the cluster in the specified region.
 $ pcluster list-clusters
 ````
 
+Pcluster to create a custom AMI.
+````
+$ pcluster build-image --image-id ami-emoryhummingbird --image-configuration IMAGE_CONFIG.yaml --region us-east-2
+````
 
 ## Development
 
