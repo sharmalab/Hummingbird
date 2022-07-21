@@ -11,7 +11,7 @@ We use [aws-parallelcluster](https://docs.aws.amazon.com/parallelcluster/latest/
 
 ## Configure AWS
 
-Install [AWS CLI](http://aws.amazon.com/cli/).
+Install [AWS CLI](http://aws.amazon.com/cli/) and [Packer](https://www.packer.io/downloads.html).
 
 Configure aws client locally.
 
