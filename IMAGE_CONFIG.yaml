@@ -1,3 +1,3 @@
 Build:
-  InstanceType: t2.micro
-  ParentImage: ami-58f5db3d
+  InstanceType: r6i.xlarge
+  ParentImage: ami-09cf6eb3398323e1f
