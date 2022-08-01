@@ -28,11 +28,6 @@ Default region name [None]: us-east-2
 Default output format [None]:
 ````
 
-Use pcluster client to manage the cluster in the specified region.
-
-````
-$ pcluster list-clusters
-````
 
 * ami-09cf6eb3398323e1f is an image of Ubuntu 20.04 environment with Cell Profiler built from source.
 
@@ -54,7 +49,7 @@ $ pcluster build-image --image-id ami-pclustercellprofiler2 --image-configuratio
 }
 ````
 
-Describe the ongoing build progress.
+* Describe the ongoing build progress.
 ````
 $ pcluster describe-image --image-id ami-pclustercellprofiler2 --region us-east-2
 {
@@ -100,6 +95,11 @@ $ pcluster describe-image --image-id ami-pclustercellprofiler2 --region us-east-
   "imageBuildLogsArn": "arn:aws:logs:us-east-2:621508296309:log-group:/aws/imagebuilder/ParallelClusterImage-ami-pclustercellprofiler",
   "cloudformationStackCreationTime": "2022-08-01T21:37:37.707Z"
 }
+
+* Pcluster to create a custom AMI.
+
+````
+$ pcluster build-image --image-id ami-emoryhummingbird --image-configuration IMAGE_CONFIG.yaml --region us-east-2
 ````
 
 ## Development
