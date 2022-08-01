@@ -68,7 +68,7 @@ $ sudo /usr/local/sbin/ami_cleanup.sh
 
 * Stop the above EC2 VM instance and create an AMI out of the instance once stopped. Let's call it pcluster-cellprofiler-hummingbird.
 
-* Enter this image's AMI ID in the [CustomAmi](https://docs.aws.amazon.com/parallelcluster/latest/ug/Scheduling-v3.html#yaml-Scheduling-SlurmQueues-Image-CustomAmi) field in the cluster configuration and create a cluster.
+* Enter this image's AMI ID (ami-08ddea673d79b8450) in the [CustomAmi](https://docs.aws.amazon.com/parallelcluster/latest/ug/Scheduling-v3.html#yaml-Scheduling-SlurmQueues-Image-CustomAmi) field in the cluster configuration and create a cluster.
 
 # Approach - 1: Build a Custom AWS ParallelCluster AMI
 
