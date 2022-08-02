@@ -115,6 +115,45 @@ $ pcluster list-clusters
 }
 ````
 
+
+* List clusters should show the current cluster to have a "CREATE_COMPLETE" status once complete.
+````
+$ pcluster list-clusters
+{
+  "clusters": [
+    {
+      "clusterName": "cluster-name",
+      "cloudformationStackStatus": "CREATE_COMPLETE",
+      "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/cluster-name/6a621100-120d-11ed-81d4-0a23b49d510e",
+      "region": "us-east-2",
+      "version": "3.1.4",
+      "clusterStatus": "CREATE_COMPLETE"
+    }
+  ]
+}
+
+$ pcluster describe-cluster-instances -n cluster-name
+{
+  "instances": [
+    {
+      "launchTime": "2022-08-02T02:50:01.000Z",
+      "instanceId": "i-0f356574b29d6ba7d",
+      "publicIpAddress": "18.117.165.240",
+      "instanceType": "t2.micro",
+      "state": "running",
+      "nodeType": "HeadNode",
+      "privateIpAddress": "10.0.2.36"
+    }
+  ]
+}
+
+ pcluster describe-compute-fleet -n cluster-name
+{
+  "status": "RUNNING",
+  "lastStatusUpdatedTime": "2022-08-02T02:52:52.000Z"
+}
+````
+
 # Approach - 1: Build a Custom AWS ParallelCluster AMI
 
 * ami-09cf6eb3398323e1f is an image of Ubuntu 20.04 environment with Cell-Profiler built from source.
