@@ -1,10 +1,11 @@
 Region: us-east-2
 Image:
   Os: ubuntu2004
+  CustomAmi: ami-08ddea673d79b8450
 HeadNode:
   InstanceType: t2.micro
   Networking:
-    SubnetId: subnet-00a4be39efc43bb4c
+    SubnetId: subnet-0ecabcbdfec66e462
   Ssh:
     KeyName: hummingbird
 Scheduling:
@@ -18,4 +19,4 @@ Scheduling:
       MaxCount: 10
     Networking:
       SubnetIds:
-      - subnet-0b1d6287d85ea37a3
+      - subnet-0b670e56e895c5e57

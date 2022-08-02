@@ -68,7 +68,52 @@ $ sudo /usr/local/sbin/ami_cleanup.sh
 
 * Stop the above EC2 VM instance and create an AMI out of the instance once stopped. Let's call it pcluster-cellprofiler-hummingbird.
 
-* Enter this image's AMI ID (ami-08ddea673d79b8450) in the [CustomAmi](https://docs.aws.amazon.com/parallelcluster/latest/ug/Scheduling-v3.html#yaml-Scheduling-SlurmQueues-Image-CustomAmi) field in the cluster configuration and create a cluster.
+* Enter this image's AMI ID (ami-08ddea673d79b8450) in the [CustomAmi](https://docs.aws.amazon.com/parallelcluster/latest/ug/Scheduling-v3.html#yaml-Scheduling-SlurmQueues-Image-CustomAmi) field in the cluster configuration (cluster-config.yaml)
+  
+* Create a cluster.
+
+````
+$ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name cluster-name --region us-east-2
+{
+  "cluster": {
+    "clusterName": "cluster-name",
+    "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/cluster-name/6a621100-120d-11ed-81d4-0a23b49d510e",
+    "region": "us-east-2",
+    "version": "3.1.4",
+    "clusterStatus": "CREATE_IN_PROGRESS"
+  },
+  "validationMessages": [
+    {
+      "level": "WARNING",
+      "type": "CustomAmiTagValidator",
+      "message": "The custom AMI may not have been created by pcluster. You can ignore this warning if the AMI is shared or copied from another pcluster AMI. If the AMI is indeed not created by pcluster, cluster creation will fail. If the cluster creation fails, please go to https://docs.aws.amazon.com/parallelcluster/latest/ug/troubleshooting.html#troubleshooting-stack-creation-failures for troubleshooting."
+    },
+    {
+      "level": "WARNING",
+      "type": "AmiOsCompatibleValidator",
+      "message": "Could not check node AMI ami-08ddea673d79b8450 OS and cluster OS ubuntu2004 compatibility, please make sure they are compatible before cluster creation and update operations."
+    }
+  ]
+}
+````
+
+* List clusters
+````
+$ pcluster list-clusters
+{
+  "clusters": [
+    {
+      "clusterName": "cluster-name",
+      "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+      "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/cluster-name/6a621100-120d-11ed-81d4-0a23b49d510e",
+      "region": "us-east-2",
+      "version": "3.1.4",
+      "clusterStatus": "CREATE_IN_PROGRESS"
+    }
+  ]
+}
+````
 
 # Approach - 1: Build a Custom AWS ParallelCluster AMI
 
