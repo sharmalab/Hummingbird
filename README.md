@@ -73,10 +73,10 @@ $ sudo /usr/local/sbin/ami_cleanup.sh
 * Create a cluster.
 
 ````
-$ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name cluster-name --region us-east-2
+$ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name hummingbirdcp --region us-east-2
 {
   "cluster": {
-    "clusterName": "cluster-name",
+    "clusterName": "hummingbirdcp",
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
     "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/cluster-name/6a621100-120d-11ed-81d4-0a23b49d510e",
     "region": "us-east-2",
@@ -104,7 +104,7 @@ $ pcluster list-clusters
 {
   "clusters": [
     {
-      "clusterName": "cluster-name",
+      "clusterName": "hummingbirdcp",
       "cloudformationStackStatus": "CREATE_IN_PROGRESS",
       "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/cluster-name/6a621100-120d-11ed-81d4-0a23b49d510e",
       "region": "us-east-2",
@@ -122,7 +122,7 @@ $ pcluster list-clusters
 {
   "clusters": [
     {
-      "clusterName": "cluster-name",
+      "clusterName": "hummingbirdcp",
       "cloudformationStackStatus": "CREATE_COMPLETE",
       "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/cluster-name/6a621100-120d-11ed-81d4-0a23b49d510e",
       "region": "us-east-2",
@@ -132,25 +132,54 @@ $ pcluster list-clusters
   ]
 }
 
-$ pcluster describe-cluster-instances -n cluster-name
+$ pcluster describe-cluster -n hummingbirdcp
+{
+  "creationTime": "2022-08-09T20:48:47.075Z",
+  "headNode": {
+    "launchTime": "2022-08-09T20:57:29.000Z",
+    "instanceId": "i-0afaa42187ed82f5a",
+    "publicIpAddress": "3.145.52.0",
+    "instanceType": "t2.micro",
+    "state": "running",
+    "privateIpAddress": "10.0.2.42"
+  },
+  "version": "3.1.4",
+  "clusterConfiguration": {
+    "url": "https://parallelcluster-344028c9583f7617-v1-do-not-delete.s3.us-east-2.amazonaws.com/parallelcluster/3.1.4/clusters/hummingbirdcp-5kt247wra9cmb3vh/configs/cluster-config.yaml?versionId=.w2tJRJz0YP5QS8kP4Q3.1JqOD38Q1G0&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZBNGH7Z2TSH2LOIU%2F20220809%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20220809T210235Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8d74ad4d0f1586028f3c1a7bcb11fc3a0a96f4197f192445f6df287fc762abaf"
+  },
+  "tags": [
+    {
+      "value": "3.1.4",
+      "key": "parallelcluster:version"
+    }
+  ],
+  "cloudFormationStackStatus": "CREATE_COMPLETE",
+  "clusterName": "hummingbirdcp",
+  "computeFleetStatus": "RUNNING",
+  "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/hummingbirdcp/a9ffb430-1824-11ed-b338-0a9410fbeefe",
+  "lastUpdatedTime": "2022-08-09T20:48:47.075Z",
+  "region": "us-east-2",
+  "clusterStatus": "CREATE_COMPLETE"
+}
+
+$ pcluster describe-cluster-instances -n hummingbirdcp
 {
   "instances": [
     {
-      "launchTime": "2022-08-02T02:50:01.000Z",
-      "instanceId": "i-0f356574b29d6ba7d",
-      "publicIpAddress": "18.117.165.240",
+      "launchTime": "2022-08-09T20:57:29.000Z",
+      "instanceId": "i-0afaa42187ed82f5a",
+      "publicIpAddress": "3.145.52.0",
       "instanceType": "t2.micro",
       "state": "running",
       "nodeType": "HeadNode",
-      "privateIpAddress": "10.0.2.36"
+      "privateIpAddress": "10.0.2.42"
     }
   ]
-}
 
- pcluster describe-compute-fleet -n cluster-name
+$ pcluster describe-compute-fleet -n hummingbirdcp
 {
   "status": "RUNNING",
-  "lastStatusUpdatedTime": "2022-08-02T02:52:52.000Z"
+  "lastStatusUpdatedTime": ""2022-08-09T21:00:05.000Z""
 }
 ````
 

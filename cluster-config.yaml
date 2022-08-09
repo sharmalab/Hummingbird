@@ -20,3 +20,11 @@ Scheduling:
     Networking:
       SubnetIds:
       - subnet-0b670e56e895c5e57
+SharedStorage:
+  - MountDir: hummingbird
+    Name: fsxhummingbird
+    StorageType: FsxLustre
+    FsxLustreSettings:
+      StorageCapacity: 1200
+      ExportPath: s3://cellprofiler-hummingbird
+      ImportPath: s3://cellprofiler-hummingbird/import
