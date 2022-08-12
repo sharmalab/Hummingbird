@@ -26,12 +26,5 @@ SharedStorage:
     StorageType: FsxLustre
     FsxLustreSettings:
       StorageCapacity: 1200
-      ExportPath: s3://cellprofiler-hummingbird
-      ImportPath: s3://cellprofiler-hummingbird
-  - MountDir: hummingbird2
-    Name: fsxhummingbird2
-    StorageType: FsxLustre
-    FsxLustreSettings:
-      StorageCapacity: 1200
       ExportPath: s3://cellprofiler-hummingbird/Marklein
       ImportPath: s3://cellprofiler-hummingbird/Marklein
