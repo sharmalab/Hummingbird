@@ -1,5 +1,10 @@
-# Hummingbird
-A Python-based toolkit for AWS Hybrid Cloud Resource Management, using Boto3
+# Hummingbird: A Python-based toolkit for AWS Hybrid Cloud Resource Management 
+
+We build Hummingbird for a distributed cloud execution of Cell Profiler. We aim Hummingbird to have two major steps.
+
+Step 1 - A boto3/Python method to start a ParallelCluster with Slurm, with images/pipelines. Our sample Cell Profiler use case has create csv method needs to be used, together with initiating with the AMI.
+
+Step 2 - Submitting the job array to Slurm.
 
 ## Install dependencies
 
@@ -258,35 +263,4 @@ $ pcluster describe-image --image-id ami-pclustercellprofiler2 --region us-east-
 $ pcluster build-image --image-id ami-emoryhummingbird --image-configuration IMAGE_CONFIG.yaml --region us-east-2
 ````
 
-## Development
 
-We aim Hummingbird to have two major steps.
-
-Step 1 - A boto3/Python method to start a ParallelCluster with Slurm, with images/pipelines. Our sample Cell Profiler use case has create csv method needs to be used, together with initiating with the AMI.
-
-Step 2 - Submitting the job array to Slurm.
-
-## Running the code
-
-### Step 1
-Edit the config.py file with all the relevant information for your job. Then, start creating 
-the basic AWS resources by running the following script:
-
- $ python3 run.py setup
- 
-### Step 2
-After the first script runs successfully, the job can now be submitted to AWS using EITHER of the 
-following commands:
-
- $ python3 run.py submitJob for_cmat/microgliaJob.json 
- 
-
-### Step 3
-After submitting the job to the queue, we can add computing power to process all tasks in AWS. 
-
- $ python3 run.py startCluster for_cmat/CP_Fleet_us-east-2.json 
-
-### Step 4
-When the cluster is up and running, you can monitor progress using the following command:
-
- $ python3 run.py monitor files/Marklein_MicrogliaSpotFleetRequestId.json 
