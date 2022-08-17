@@ -1,4 +1,4 @@
-# Hummingbird: A toolkit for Distributed AWS Cloud Resource Management 
+# Hummingbird: A Toolkit for Distributed AWS Cloud Resource Management 
 
 We build Hummingbird for a distributed cloud execution of Cell Profiler. We aim Hummingbird to have two major steps.
 
