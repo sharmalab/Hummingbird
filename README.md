@@ -1,10 +1,10 @@
-# Hummingbird: A Python-based toolkit for AWS Hybrid Cloud Resource Management 
+# Hummingbird: A toolkit for Distributed AWS Cloud Resource Management 
 
 We build Hummingbird for a distributed cloud execution of Cell Profiler. We aim Hummingbird to have two major steps.
 
-Step 1 - A boto3/Python method to start a ParallelCluster with Slurm, with images/pipelines. Our sample Cell Profiler use case has create csv method needs to be used, together with initiating with the AMI.
+* A ParallelCluster call to start a cluster with Slurm, with images/pipelines. Our sample Cell Profiler use case has create csv method needs to be used, together with initiating with the AMI.
 
-Step 2 - Submitting the job array to Slurm.
+* Submitting the job array to Slurm.
 
 ## Install dependencies
 
