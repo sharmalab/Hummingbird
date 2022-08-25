@@ -73,12 +73,12 @@ $ sudo /usr/local/sbin/ami_cleanup.sh
 * Create a cluster.
 
 ````
-$ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name hummingbirdcp --region us-east-2
+$ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name hummingbirdad --region us-east-2
 {
   "cluster": {
-    "clusterName": "hummingbirdcp",
+    "clusterName": "hummingbirdad",
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
-    "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/cluster-name/6a621100-120d-11ed-81d4-0a23b49d510e",
+    "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/hummingbirdad/b15ae890-24bc-11ed-ac5e-0666b0198bae",
     "region": "us-east-2",
     "version": "3.1.4",
     "clusterStatus": "CREATE_IN_PROGRESS"
@@ -93,6 +93,16 @@ $ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-
       "level": "WARNING",
       "type": "AmiOsCompatibleValidator",
       "message": "Could not check node AMI ami-08ddea673d79b8450 OS and cluster OS ubuntu2004 compatibility, please make sure they are compatible before cluster creation and update operations."
+    },
+    {
+      "level": "WARNING",
+      "type": "DomainAddrValidator",
+      "message": "The use of the ldaps protocol is strongly encouraged for security reasons."
+    },
+    {
+      "level": "WARNING",
+      "type": "PasswordSecretArnValidator",
+      "message": "Cannot validate secret arn:aws:secretsmanager:region-id:123456789012:secret:MicrosoftAD.Admin.Password due to lack of permissions. Please refer to ParallelCluster official documentation for more information."
     }
   ]
 }

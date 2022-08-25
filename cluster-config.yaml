@@ -28,3 +28,10 @@ SharedStorage:
       StorageCapacity: 1200
       ExportPath: s3://cmat-thrust1/Marklein
       ImportPath: s3://cmat-thrust1/Marklein
+DirectoryService:
+  DomainName: dc=hummingbird,dc=emory,dc=edu
+  DomainAddr: ldap://172.31.6.230,ldap://172.31.28.23
+  PasswordSecretArn: arn:aws:secretsmanager:region-id:123456789012:secret:MicrosoftAD.Admin.Password
+  DomainReadOnlyUser: cn=ReadOnly,ou=Users,ou=HUMMINGBIRD,dc=hummingbird,dc=emory,dc=edu
+  AdditionalSssdConfigs:
+    ldap_auth_disable_tls_never_use_in_production: True
