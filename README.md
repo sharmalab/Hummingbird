@@ -78,7 +78,50 @@ $ sudo /usr/local/sbin/ami_cleanup.sh
 * Stop the above EC2 VM instance and create an AMI out of the instance once stopped. Let's call it pcluster-cellprofiler-hummingbird.
 
 * Enter this image's AMI ID (ami-08ddea673d79b8450) in the [CustomAmi](https://docs.aws.amazon.com/parallelcluster/latest/ug/Scheduling-v3.html#yaml-Scheduling-SlurmQueues-Image-CustomAmi) field in the cluster configuration (cluster-config.yaml)
-  
+
+* Create an Active Directory instance
+````
+$ aws ds describe-directories --directory-id "d-9a6718f1d9"
+{
+    "DirectoryDescriptions": [
+        {
+            "DirectoryId": "d-9a6718f1d9",
+            "Name": "hummingbird.emory.edu",
+            "ShortName": "admin",
+            "Size": "Small",
+            "Edition": "Standard",
+            "Alias": "d-9a6718f1d9",
+            "AccessUrl": "d-9a6718f1d9.awsapps.com",
+            "DnsIpAddrs": [
+                "172.31.6.230",
+                "172.31.28.23"
+            ],
+            "Stage": "Active",
+            "LaunchTime": "2022-08-25T17:09:23.373000-04:00",
+            "StageLastUpdatedDateTime": "2022-08-25T17:38:43.078000-04:00",
+            "Type": "MicrosoftAD",
+            "VpcSettings": {
+                "VpcId": "vpc-65323d0d",
+                "SubnetIds": [
+                    "subnet-b5c2f5dd",
+                    "subnet-76fe930c"
+                ],
+                "SecurityGroupId": "sg-01d8578d38f530a14",
+                "AvailabilityZones": [
+                    "us-east-2a",
+                    "us-east-2b"
+                ]
+            },
+            "SsoEnabled": false,
+            "DesiredNumberOfDomainControllers": 2,
+            "RegionsInfo": {
+                "PrimaryRegion": "us-east-2",
+                "AdditionalRegions": []
+            }
+        }
+    ]
+} 
+```` 
 * Create a cluster.
 
 ````
@@ -200,4 +243,9 @@ $ pcluster describe-compute-fleet -n hummingbirdcp
   "status": "RUNNING",
   "lastStatusUpdatedTime": ""2022-08-09T21:00:05.000Z""
 }
+````
+
+Detailed logs can be found by,
+````
+$ tail -f ~/.parallelcluster/pcluster-cli.log
 ````
