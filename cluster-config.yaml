@@ -30,8 +30,8 @@ SharedStorage:
       ImportPath: s3://cmat-thrust1/Marklein
 DirectoryService:
   DomainName: dc=hummingbird,dc=emory,dc=edu
-  DomainAddr: ldap://172.31.6.230,ldap://172.31.28.23
-  PasswordSecretArn: arn:aws:secretsmanager:region-id:123456789012:secret:MicrosoftAD.Admin.Password
+  DomainAddr: ldap://172.31.14.37,ldap://172.31.24.153
+  PasswordSecretArn: arn:aws:secretsmanager:us-east-2:121508296309:secret:secret-123456
   DomainReadOnlyUser: cn=ReadOnly,ou=Users,ou=HUMMINGBIRD,dc=hummingbird,dc=emory,dc=edu
   AdditionalSssdConfigs:
     ldap_auth_disable_tls_never_use_in_production: True
