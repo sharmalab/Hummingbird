@@ -28,6 +28,7 @@ SharedStorage:
       StorageCapacity: 1200
       ExportPath: s3://cmat-thrust1/Marklein
       ImportPath: s3://cmat-thrust1/Marklein
+      AutoImportPolicy: NEW_CHANGED
 DirectoryService:
   DomainName: dc=hummingbird,dc=emory,dc=edu
   DomainAddr: ldap://172.31.14.37,ldap://172.31.24.153

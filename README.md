@@ -125,7 +125,7 @@ $ aws ds describe-directories --directory-id "d-9a6718f286"
 * Create a cluster.
 
 ````
-$ $ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name hummingbirdyy --region us-east-2
+$ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name hummingbird01 --region us-east-2
 {
   "cluster": {
     "clusterName": "hummingbirdyy",
@@ -189,20 +189,20 @@ $ pcluster list-clusters
   ]
 }
 
-$ $ pcluster describe-cluster --cluster-name hummingbirdyy
+$ pcluster describe-cluster --cluster-name hummingbird01
 {
-  "creationTime": "2022-08-25T23:36:14.864Z",
+  "creationTime": "2022-08-30T16:00:24.140Z",
   "headNode": {
-    "launchTime": "2022-08-25T23:43:56.000Z",
-    "instanceId": "i-0d29a454032d974b4",
-    "publicIpAddress": "18.116.28.165",
+    "launchTime": "2022-08-30T16:15:16.000Z",
+    "instanceId": "i-02606bcdcbac61852",
+    "publicIpAddress": "3.17.166.49",
     "instanceType": "t2.micro",
     "state": "running",
-    "privateIpAddress": "10.0.2.72"
+    "privateIpAddress": "10.0.2.189"
   },
   "version": "3.1.4",
   "clusterConfiguration": {
-    "url": "https://parallelcluster-344028c9583f7617-v1-do-not-delete.s3.us-east-2.amazonaws.com/parallelcluster/3.1.4/clusters/hummingbirdyy-mdn86epvzjxt2zk8/configs/cluster-config.yaml?versionId=7B3IqGmgwqg49LSBfwQrHozXSTCjpQPV&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZBNGH7Z2TSH2LOIU%2F20220825%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20220825T235043Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=aae4b2bf5bfe0efefcd88d7fa9b7ab49dfe7b8cfca2c392c74784433c2b8dba5"
+    "url": "https://parallelcluster-344028c9583f7617-v1-do-not-delete.s3.us-east-2.amazonaws.com/parallelcluster/3.1.4/clusters/hummingbird01-wmh0u33oht07ip87/configs/cluster-config.yaml?versionId=AdCkMs_NtWv3Ml_hd3c6laI7YHyXFNEm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZBNGH7Z2TSH2LOIU%2F20220830%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20220830T162226Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=973c951c022d1da14653ddc4970b3522be837636450dc01db70bce8daaa14881"
   },
   "tags": [
     {
@@ -211,10 +211,10 @@ $ $ pcluster describe-cluster --cluster-name hummingbirdyy
     }
   ],
   "cloudFormationStackStatus": "CREATE_COMPLETE",
-  "clusterName": "hummingbirdyy",
+  "clusterName": "hummingbird01",
   "computeFleetStatus": "RUNNING",
-  "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/hummingbirdyy/b58d9090-24ce-11ed-9766-063dc7aa931a",
-  "lastUpdatedTime": "2022-08-25T23:36:14.864Z",
+  "cloudformationStackArn": "arn:aws:cloudformation:us-east-2:621508296309:stack/hummingbird01/db49b550-287c-11ed-8a00-024f8cf22450",
+  "lastUpdatedTime": "2022-08-30T16:00:24.140Z",
   "region": "us-east-2",
   "clusterStatus": "CREATE_COMPLETE"
 }
@@ -253,4 +253,18 @@ $ pcluster describe-compute-fleet -n hummingbirdyy
 Detailed logs can be found by,
 ````
 $ tail -f ~/.parallelcluster/pcluster-cli.log
+````
+
+* To start a worker node, issue the below command from the head node:
+
+````
+$ srun --pty bash
+
+````
+
+* Then, from the worker node:
+
+````
+$ cellprofiler -c -r -p /hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/Multithreading_Universal_Frozen.cppipe -i /hummingbird/Marklein/Microglia_Morphology_Project/Frozen_C20s/Plate_1/ -o /hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/Output4/Plate_1-A -d /hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/Output4/Plate_1-A/cp.is.done --data-file=/hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/images.csv -g Metadata_Plate=Plate_1,Metadata_WellRow=A
+
 ````
