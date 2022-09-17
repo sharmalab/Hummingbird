@@ -161,7 +161,7 @@ $ aws ds describe-directories --directory-id "d-9a6718f286"
     ]
 } 
 ```` 
-* Create a cluster.
+* Create a cluster from the virtual environment of pcluster.
 
 ````
 $ pcluster create-cluster --cluster-configuration cluster-config.yaml --cluster-name hummingbird01 --region us-east-2
