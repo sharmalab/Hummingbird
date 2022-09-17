@@ -294,7 +294,7 @@ Detailed logs can be found by,
 $ tail -f ~/.parallelcluster/pcluster-cli.log
 ````
 
-* To start a worker node, issue the below command from the head node:
+* To start a worker node, log in to the head node and issue the below command from there:
 
 ````
 $ srun --pty bash
