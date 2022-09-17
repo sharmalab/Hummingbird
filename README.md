@@ -67,7 +67,40 @@ $ pcluster list-official-images --region us-east-2 --os ubuntu2004
 ````
 $ ssh -i "hummingbird.pem" ubuntu@ec2-18-118-25-136.us-east-2.compute.amazonaws.com  
 ````  
-* Install [Cell-Profiler from source](https://github.com/CellProfiler/CellProfiler/wiki/Ubuntu-20.04) in the above VM.
+* Install Cell-Profiler from source](https://github.com/CellProfiler/CellProfiler/wiki/Ubuntu-20.04) in the above VM. We use the below commands for that.
+
+The following instructions were used to build CellProfiler 4.0.0rc12 on a new AWS Ubuntu 20.04 machine (ami-0758470213bdd23b1)
+
+```sh
+sudo apt update
+sudo apt -y upgrade
+sudo apt install -y make gcc build-essential libgtk-3-dev
+sudo apt-get install -y python3-pip openjdk-11-jdk-headless default-libmysqlclient-dev libnotify-dev libsdl2-dev
+#If and only if you are building your wxPython not from a wheel, you may need the following libraries:
+#Otherwise, skip to the "export" steps
+sudo apt-get install -y \
+                freeglut3 \
+                freeglut3-dev \
+                libgl1-mesa-dev \
+                libglu1-mesa-dev \
+                libgstreamer-plugins-base1.0-dev \
+                libgtk-3-dev \
+                libjpeg-dev \
+                libnotify-dev \
+                libsdl2-dev \
+                libsm-dev \
+                libtiff-dev \
+                libwebkit2gtk-4.0-dev \
+                libxtst-dev
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=$PATH:/home/ubuntu/.local/bin
+
+wget https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
+pip3 install wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
+
+pip3 install cellprofiler
+```
 
 * Run the below in the above VM.
 
