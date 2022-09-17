@@ -304,6 +304,5 @@ $ srun --pty bash
 * Then, from the worker node:
 
 ````
-$ cellprofiler -c -r -p /hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/Multithreading_Universal_Frozen.cppipe -i /hummingbird/Marklein/Microglia_Morphology_Project/Frozen_C20s/Plate_1/ -o /hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/Output4/Plate_1-A -d /hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/Output4/Plate_1-A/cp.is.done --data-file=/hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/images.csv -g Metadata_Plate=Plate_1,Metadata_WellRow=A
-
+$ cellprofiler -c -r -p /hummingbird/Marklein/Microglia_Morphology_Project/AWS_Test/Multithreading_Universal_Frozen.cppipe -i /hummingbird/Marklein/Microglia_Morphology_Project/Frozen_C20s/Plate_1/ -o /hummingbird/Marklein/output7/Plate_1-A -d /hummingbird/Marklein/output7/Plate_1-A/cp.is.done --data-file=/hummingbird/Marklein/output7/images.csv -g Metadata_Plate=Plate_1,Metadata_WellRow=A
 ````
