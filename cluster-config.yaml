@@ -1,7 +1,7 @@
 Region: us-east-2
 Image:
   Os: ubuntu2004
-  CustomAmi: ami-08ddea673d79b8450
+  CustomAmi: ami-02080debac86b4a94
 HeadNode:
   InstanceType: t2.micro
   Networking:
@@ -13,8 +13,8 @@ Scheduling:
   SlurmQueues:
   - Name: queue1
     ComputeResources:
-    - Name: t2micro
-      InstanceType: t2.micro
+    - Name: r6ixlarge
+      InstanceType: r6i.xlarge
       MinCount: 0
       MaxCount: 10
     Networking:
