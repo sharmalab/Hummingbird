@@ -103,7 +103,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$PATH:/home/ubuntu/.local/bin
 ```
 
-Then run,
+Log out and log in. Then run,
 ```
 $ pip3 install cellprofiler
 ```
