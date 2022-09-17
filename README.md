@@ -93,13 +93,19 @@ sudo apt-get install -y \
                 libwebkit2gtk-4.0-dev \
                 libxtst-dev
 
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-export PATH=$PATH:/home/ubuntu/.local/bin
-
 wget https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
 pip3 install wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
+```
+Then edit ~/.bashrc to include the two lines:
 
-pip3 install cellprofiler
+```
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=$PATH:/home/ubuntu/.local/bin
+```
+
+Then run,
+```
+$ pip3 install cellprofiler
 ```
 
 * Run the below in the above VM.
