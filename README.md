@@ -67,7 +67,7 @@ $ pcluster list-official-images --region us-east-2 --os ubuntu2004
 ````
 $ ssh -i "hummingbird.pem" ubuntu@ec2-18-118-25-136.us-east-2.compute.amazonaws.com  
 ````  
-* Install Cell-Profiler from source](https://github.com/CellProfiler/CellProfiler/wiki/Ubuntu-20.04) in the above VM. We use the below commands for that.
+* Install [Cell-Profiler from source](https://github.com/CellProfiler/CellProfiler/wiki/Ubuntu-20.04) in the above VM. We use the below commands for that.
 
 The following instructions were used to build CellProfiler 4.0.0rc12 on a new AWS Ubuntu 20.04 machine (ami-0758470213bdd23b1)
 
