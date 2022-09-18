@@ -1,3 +1,0 @@
-Build:
-  InstanceType: r6i.xlarge
-  ParentImage: ami-02080debac86b4a94
