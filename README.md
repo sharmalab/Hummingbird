@@ -6,6 +6,29 @@ We build Hummingbird for a distributed cloud execution of Cell Profiler. We aim 
 
 * Submitting the job array to Slurm.
 
+
+## Build and run the container
+
+Clone the source code
+````
+git clone git@github.com:sharmalab/Hummingbird.git
+````
+
+Get the latest code
+````
+git pull
+````
+
+Build the container
+````
+sudo docker build -t hummingbird .
+````
+
+Run as nohup
+````
+nohup sudo docker run --name hummingbird -p 8090:8081 hummingbird > hummingbird.out &
+````
+
 ## Install dependencies
 
 Please use venv, rather than installing directly.
