@@ -12,4 +12,4 @@ RUN useradd hummingbird && chown -R hummingbird /hummingbird
 
 USER hummingbird
 
-CMD ["gunicorn", "--timeout=180", "--workers=20", "--bind=0.0.0.0:8081", "--access-logfile=-", "Server:app"]
+CMD ["gunicorn", "--timeout=180", "--workers=20", "--bind=0.0.0.0:8081", "--access-logfile=-", "server:app"]
