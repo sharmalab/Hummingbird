@@ -21,7 +21,7 @@ git pull
 
 Build the container
 ````
-sudo docker build -t hummingbird:1.0.0 .
+docker build -t hummingbird:1.0.0 .
 ````
 Tag the container
 ````

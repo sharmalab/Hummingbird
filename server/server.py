@@ -1,8 +1,8 @@
-from flask import Flask, request
-import subprocess
+from flask import Flask, request, render_template
+from werkzeug.utils import secure_filename
 import logging
 from flask import jsonify
-from werkzeug.utils import secure_filename
+import subprocess
 
 TRIMMED_LOGS = False
 
@@ -17,8 +17,13 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 
-# For example, http://localhost:8090/?out=/path/where/the/output/goes
-@app.route('/', methods=['POST'])
+@app.route('/')
+def hello_world():
+    return render_template('home.html')
+
+
+# For example, http://localhost:8090/run?out=/path/where/the/output/goes
+@app.route('/run', methods=['POST'])
 def init():
     cppipein = request.files['in']
     cppipein.save(secure_filename(cppipein.filename))
