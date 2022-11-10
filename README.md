@@ -19,5 +19,5 @@ sudo docker build -t hummingbird .
 
 Run as nohup
 ````
-nohup sudo docker run --name hummingbird -p 8090:8081 hummingbird > hummingbird.out &
+nohup sudo docker run --name hummingbird -p 9090:8081 hummingbird > hummingbird.out &
 ````
