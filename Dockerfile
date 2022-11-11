@@ -2,10 +2,13 @@ FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get -y update           && \
-    apt-get -y upgrade          && \
-    apt-get -y install 		\
-    python3.8 make gcc build-essential libgtk-3-dev \
+RUN apt-get -y update && apt-get -y upgrade
+
+RUN export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+RUN export PATH=$PATH:/home/ubuntu/.local/bin
+
+RUN apt-get -y install 		\
+    make gcc build-essential libgtk-3-dev \
     python3-pip openjdk-11-jdk-headless default-libmysqlclient-dev libnotify-dev libsdl2-dev \
 	automake 		\
 	autotools-dev 		\
@@ -19,8 +22,6 @@ RUN apt-get -y update           && \
 	sysstat			\
 	curl
 
-RUN export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-RUN export PATH=$PATH:/home/ubuntu/.local/bin
 
 RUN wget https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
 RUN pip3 install wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
