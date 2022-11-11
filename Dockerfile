@@ -11,7 +11,7 @@ RUN apt-get -y update           && \
 	autotools-dev 		\
 	g++ 			\
 	git 			\
-	libcurl4-gnutls-dev 	\
+	libcurl4-gnutls-dev wget	\
 	libfuse-dev 		\
 	libssl-dev 		\
 	libxml2-dev 		\
