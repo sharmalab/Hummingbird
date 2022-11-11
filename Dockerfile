@@ -5,7 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update           && \
     apt-get -y upgrade          && \
     apt-get -y install 		\
-    make gcc build-essential libgtk-3-dev \
+    python3.8 make gcc build-essential libgtk-3-dev \
     python3-pip openjdk-11-jdk-headless default-libmysqlclient-dev libnotify-dev libsdl2-dev \
 	automake 		\
 	autotools-dev 		\
@@ -15,7 +15,7 @@ RUN apt-get -y update           && \
 	libfuse-dev 		\
 	libssl-dev 		\
 	libxml2-dev 		\
-	make pkg-config		\
+	pkg-config		\
 	sysstat			\
 	curl
 
