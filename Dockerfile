@@ -26,7 +26,7 @@ RUN wget https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wx
 RUN pip3 install wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
 
 RUN git clone https://github.com/CellProfiler/CellProfiler.git && \
-  cd CellProfiler && \
+  cd CellProfiler && git checkout v4.2.4 && \
   pip3 install .
 
 WORKDIR /usr/local/src
