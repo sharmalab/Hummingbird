@@ -25,9 +25,9 @@ RUN export PATH=$PATH:/home/ubuntu/.local/bin
 RUN wget https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04/wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
 RUN pip3 install wxPython-4.1.0-cp38-cp38-linux_x86_64.whl
 
-RUN git clone https://github.com/CellProfiler/CellProfiler.git
-WORKDIR /home/ubuntu/CellProfiler
-RUN pip3 install .
+RUN git clone https://github.com/CellProfiler/CellProfiler.git && \
+  cd CellProfiler && \
+  pip3 install .
 
 WORKDIR /usr/local/src
 RUN git clone https://github.com/s3fs-fuse/s3fs-fuse.git
