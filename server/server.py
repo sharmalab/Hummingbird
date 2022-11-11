@@ -19,21 +19,26 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 @app.route('/')
 def hello_world():
+    logging.info("***Home page accessed***!")
     return render_template('home.html')
 
 
 # For example, http://localhost:8090/run?out=/path/where/the/output/goes
 @app.route('/run', methods=['POST'])
 def init():
+    logging.info("Hummingbird: Invoking Cellprofiler.")
     cppipein = request.files['in']
     cppipein.save(secure_filename(cppipein.filename))
     out = request.args.get('out')
     logging.info("Input cppipe: %s , Output: %s", cppipein, out)
     scr = "cellprofiler -c -r -p" + cppipein.filename + "-o" + out
+    logging.info("********************")
+    logging.info(scr)
     subprocess.call(scr, shell=True)
     resp = jsonify(success=True)
     return resp
 
 
 if __name__ == '__main__':
+    logging.info("The main method of Hummingbird is initialized!")
     app.run(host='0.0.0.0', port=8080, debug=True)
