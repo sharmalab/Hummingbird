@@ -58,5 +58,5 @@ RUN useradd hummingbird && chown -R hummingbird /hummingbird
 
 USER hummingbird
 
-CMD ["python", "server.py"]
+CMD ["python3", "server.py"]
 # CMD ["gunicorn", "--timeout=180", "--workers=20", "--bind=0.0.0.0:8081", "--access-logfile=-", "server:app"]
