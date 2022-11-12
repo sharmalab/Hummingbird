@@ -6,8 +6,8 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get -y install 		\
     apt-utils make gcc build-essential libgtk-3-dev \
     python3-pip openjdk-11-jdk-headless
 
-RUN export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-RUN export PATH=$PATH:/home/ubuntu/.local/bin
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV PATH=$PATH:/home/ubuntu/.local/bin
 
 RUN apt-get -y install 		\
     default-libmysqlclient-dev libnotify-dev libsdl2-dev \
