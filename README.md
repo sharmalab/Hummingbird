@@ -1,10 +1,15 @@
 # Hummingbird: A Toolkit for Distributed AWS Cloud Resource Management 
 
-## Run the container
+## Run the server container
 
 Run as nohup
 ````
 nohup sudo docker run --name hummingbird -p 9091:8081 9090:8080 hummingbird > hummingbird.out &
+````
+
+## Run the client
+````
+python client.py
 ````
 
 ## Developer Guideline: Build the container
