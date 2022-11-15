@@ -4,7 +4,7 @@
 
 Run as nohup
 ````
-nohup sudo docker run --name hummingbird -p 9091:8081 -p 9090:8080 hummingbird > hummingbird.out &
+nohup sudo docker run --name hummingbird -p 9091:8081 -p 9090:8080 hummingbird:1.0.0 > hummingbird.out &
 ````
 
 ## Run the client
