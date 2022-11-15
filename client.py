@@ -4,7 +4,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 def init():
-    files = {'in': open('./test.cppipe', 'rb')}
+    files = {'cppipe': open('./test.cppipe', 'rb'), 'images': open('./images.csv', 'rb')}
 
     # POST Request to /ctl with u as file1
     r = requests.post('http://www.controlcore.org:9090/run?out=outfolder', files=files)

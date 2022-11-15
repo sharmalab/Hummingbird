@@ -19,18 +19,22 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 @app.route('/')
 def hello_world():
-    logging.info("***Home page accessed***!")
     return render_template('home.html')
 
 
 # For example, http://localhost:8090/run?out=/path/where/the/output/goes
 @app.route('/run', methods=['POST'])
 def init():
-    cppipein = request.files['in']
+    cppipein = request.files['cppipe']
+    images = request.files['images']
     cppipein.save(secure_filename(cppipein.filename))
+    images.save(secure_filename(images.filename))
     out = request.args.get('out')
-    logging.info("Input cppipe: %s , Output: %s", cppipein, out)
-    scr = "cellprofiler -c -r -p " + cppipein.filename + " -o " + out
+
+    logging.info("Input cppipe: %s, images: %s, Output: %s", cppipein, images, out)
+
+    scr = "cellprofiler -c -r -p " + cppipein.filename + " -o " + out + " --data-file " + images.filename
+
     logging.info(scr)
     subprocess.call(scr, shell=True)
     resp = jsonify(success=True)
