@@ -4,7 +4,7 @@
 
 Run as nohup
 ````
-nohup sudo docker run --name hummingbird -p 9091:8081 -p 9090:8080 hummingbird:1.0.0 > hummingbird.out &
+nohup sudo docker run --name hummingbird -p 80:80 hummingbird:1.0.1 > hummingbird.out &
 ````
 
 ## Run the client
@@ -26,16 +26,16 @@ git pull
 
 Build the container
 ````
-sudo docker build -t hummingbird:1.0.0 .
+sudo docker build -t hummingbird:1.0.1 .
 ````
 Tag the container
 ````
-docker tag hummingbird:1.0.0 pradeeban/hummingbird:1.0.0
+docker tag hummingbird:1.0.1 pradeeban/hummingbird:1.0.1
 ````
 
 Log in to Docker and push the container
 ````
 docker login
 
-docker push pradeeban/hummingbird:1.0.0
+docker push pradeeban/hummingbird:1.0.1
 ````
