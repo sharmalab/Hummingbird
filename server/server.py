@@ -3,6 +3,8 @@ from werkzeug.utils import secure_filename
 import logging
 from flask import jsonify
 import subprocess
+import boto3
+import s3fs
 
 TRIMMED_LOGS = False
 
@@ -16,15 +18,28 @@ else:
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
+s3 = boto3.resource('s3')
 
 @app.route('/')
 def hello_world():
     return render_template('home.html')
 
 
-# For example, http://localhost:8090/run?out=/path/where/the/output/goes
-@app.route('/run', methods=['POST'])
+# For example, http://localhost/init?bucket=bucketname&filepath=filepathinbucket
+@app.route('/init', methods=['GET'])
 def init():
+    bucket = request.args.get('bucket')
+    filepath = request.args.get('filepath')
+
+    # read dataframe
+    s3 = boto3.client('s3')
+    tags = s3.head_object(Bucket=bucket, Key=filepath)
+    print(tags['ResponseMetadata']['HTTPHeaders']['etag'])
+    s3.download_file(bucket, filepath, filepath)
+
+# For example, http://localhost/run?out=/path/where/the/output/goes&bucket=bucketname&filepath=filepathinbucket
+@app.route('/run', methods=['POST'])
+def run():
     cppipein = request.files['cppipe']
     images = request.files['images']
     cppipein.save(secure_filename(cppipein.filename))
