@@ -26,16 +26,16 @@ git pull
 
 Build the container
 ````
-sudo docker build -t hummingbird:1.0.2 .
+sudo docker build -t hummingbird:1.0.3 .
 ````
 Tag the container
 ````
-docker tag hummingbird:1.0.2 pradeeban/hummingbird:1.0.2
+docker tag hummingbird:1.0.3 pradeeban/hummingbird:1.0.3
 ````
 
 Log in to Docker and push the container
 ````
 docker login
 
-docker push pradeeban/hummingbird:1.0.2
+docker push pradeeban/hummingbird:1.0.3
 ````
