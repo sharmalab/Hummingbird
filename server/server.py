@@ -4,7 +4,7 @@ import logging
 from flask import jsonify
 import subprocess
 import boto3
-import s3fs
+import os
 
 TRIMMED_LOGS = False
 
@@ -25,17 +25,21 @@ def hello_world():
     return render_template('home.html')
 
 
-# For example, http://localhost/init?bucket=bucketname&filepath=filepathinbucket
+# For example, http://localhost/init?bucket=bucketname&s3filepath=s3filepathinbucket&outfilepath=outfilepath
 @app.route('/init', methods=['GET'])
 def init():
     bucket = request.args.get('bucket')
-    filepath = request.args.get('filepath')
-
-    # read dataframe
-    s3 = boto3.client('s3')
-    tags = s3.head_object(Bucket=bucket, Key=filepath)
-    print(tags['ResponseMetadata']['HTTPHeaders']['etag'])
-    s3.download_file(bucket, filepath, filepath)
+    logging.info(bucket)
+    s3filepath = request.args.get('s3filepath')
+    logging.info(s3filepath)
+    filename = request.args.get('filename')
+    logging.info(filename)
+    fulls3path = s3filepath + filename
+    outfilepath = request.args.get('outfilepath')
+    logging.info(outfilepath)
+    s3 = boto3.resource('s3')
+    os.makedirs(outfilepath, mode=0o777, exist_ok=True)
+    s3.download_file(bucket, fulls3path, outfilepath)
 
 # For example, http://localhost/run?out=/path/where/the/output/goes&bucket=bucketname&filepath=filepathinbucket
 @app.route('/run', methods=['POST'])

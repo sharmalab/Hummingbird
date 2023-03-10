@@ -73,7 +73,7 @@ MeasureImageQuality:[module_num:3|svn_version:'Unknown'|variable_revision_number
     Assign pixels in the middle intensity class to the foreground or the background?:Foreground
 
 ExportToDatabase:[module_num:4|svn_version:'Unknown'|variable_revision_number:28|show_window:False|notes:['Write the quality control measurements to the database of your choice, and create a properties file for exploring the data with CellProfiler Analyst. A CellProfiler Analyst properties file and workspace file are also created as well.', '', 'Change the table prefix to same as the folder (tables cannot start with a number)']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
-    Database type:MySQL
+    Database type:SQLite
     Database name:hummingbird
     Add a prefix to table names?:Yes
     Table prefix:qc_offset
