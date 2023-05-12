@@ -4,7 +4,7 @@
 
 Run as nohup
 ````
-nohup sudo docker run --name hummingbird -p 80:80 hummingbird:1.0.2 > hummingbird.out &
+nohup sudo docker run --name hummingbird -p 80:80 hummingbird:1.0.3 > hummingbird.out &
 ````
 
 ## Run the client
@@ -38,4 +38,9 @@ Log in to Docker and push the container
 docker login
 
 docker push pradeeban/hummingbird:1.0.3
+````
+
+Config files in
+````
+/opt/slurm-files
 ````

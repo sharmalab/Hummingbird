@@ -10,7 +10,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH=$PATH:/home/ubuntu/.local/bin
 
 RUN apt-get -y install 		\
-    default-libmysqlclient-dev libnotify-dev libsdl2-dev \
+    default-libmysqlclient-dev libnotify-dev libsdl2-dev sqlite3 \
 	automake 		\
 	autotools-dev 		\
 	g++ 			\
