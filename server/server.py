@@ -37,7 +37,7 @@ def init():
     fulls3path = s3filepath + filename
     outfilepath = request.args.get('outfilepath')
     logging.info(outfilepath)
-    s3 = boto3.resource('s3')
+    s3 = boto3.client('s3')
     os.makedirs(outfilepath, mode=0o777, exist_ok=True)
     s3.download_file(bucket, fulls3path, outfilepath)
 
