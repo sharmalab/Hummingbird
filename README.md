@@ -1,6 +1,6 @@
 # Hummingbird: A Toolkit for Distributed AWS Cloud Resource Management 
 
-## Developer Guideline: Build the container
+## Developer Guidelines: Build the container
 
 Clone the source code
 ````
@@ -28,7 +28,6 @@ docker login
 docker push pradeeban/hummingbird:1.0.3
 ````
 
-<<<<<<< HEAD
 ## Deployment Guidelines: Deploying to AWS Fargate
 
 Define an AWS policy (hummingbirds3):
