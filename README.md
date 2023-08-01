@@ -1,6 +1,6 @@
 # Hummingbird: A Toolkit for Distributed AWS Cloud Resource Management 
 
-## Developer Guidelines: Build the container
+## Developer Guideline: Build the container
 
 Clone the source code
 ````
@@ -28,6 +28,7 @@ docker login
 docker push pradeeban/hummingbird:1.0.3
 ````
 
+<<<<<<< HEAD
 ## Deployment Guidelines: Deploying to AWS Fargate
 
 Define an AWS policy (hummingbirds3):
@@ -82,4 +83,9 @@ Run the client.py.
 
 ````
 python client.py
+````
+=======
+To test the server container, you can run it locally as nohup
+````
+nohup sudo docker run --name hummingbird -p 80:80 pradeeban/hummingbird:1.0.3 > hummingbird.out &
 ````
