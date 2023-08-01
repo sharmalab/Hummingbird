@@ -1,11 +1,7 @@
 # Hummingbird: A Toolkit for Distributed AWS Cloud Resource Management 
 
-## Run the server container
+## Run the server
 
-Run as nohup
-````
-nohup sudo docker run --name hummingbird -p 80:80 pradeeban/hummingbird:1.0.3 > hummingbird.out &
-````
 
 ## Run the client
 ````
@@ -39,3 +35,9 @@ docker login
 
 docker push pradeeban/hummingbird:1.0.3
 ````
+
+To test the server container, you can run it locally as nohup
+````
+nohup sudo docker run --name hummingbird -p 80:80 pradeeban/hummingbird:1.0.3 > hummingbird.out &
+````
+
