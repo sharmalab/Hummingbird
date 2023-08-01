@@ -39,8 +39,3 @@ docker login
 
 docker push pradeeban/hummingbird:1.0.3
 ````
-
-Config files in
-````
-/opt/slurm-files
-````
