@@ -1,18 +1,6 @@
 # Hummingbird: A Toolkit for Distributed AWS Cloud Resource Management 
 
-## Run the server container
-
-Run as nohup
-````
-nohup sudo docker run --name hummingbird -p 80:80 hummingbird:1.0.3 > hummingbird.out &
-````
-
-## Run the client
-````
-python client.py
-````
-
-## Developer Guideline: Build the container
+## Developer Guidelines: Build the container
 
 Clone the source code
 ````
@@ -40,7 +28,58 @@ docker login
 docker push pradeeban/hummingbird:1.0.3
 ````
 
-Config files in
+## Deployment Guidelines: Deploying to AWS Fargate
+
+Define an AWS policy (hummingbirds3):
 ````
-/opt/slurm-files
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "*"
+        }
+    ]
+}
+````
+
+The AmazonECSTaskExecutionRolePolicy is pre-defined as below:
+````
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+````
+
+Define the task:
+
+Follow the task_definition.json in defining the task.
+
+
+Create a cluster as a service, using the defined task.
+
+
+## User Guidelines: Run the client
+
+Replace the urls to be the public urls of the deployed fargate service in client.py.
+
+Run the client.py.
+
+````
+python client.py
 ````
