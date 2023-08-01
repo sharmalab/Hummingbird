@@ -83,8 +83,10 @@ Run the client.py.
 ````
 python client.py
 ````
-=======
-To test the server container, you can run it locally as nohup
+
+To test the server container separately, you can run it locally or on a server, stand-alone. 
+
 ````
 nohup sudo docker run --name hummingbird -p 80:80 pradeeban/hummingbird:1.0.3 > hummingbird.out &
 ````
+Then change the url of the client to point to this server url, and rerun the client.py as above.
