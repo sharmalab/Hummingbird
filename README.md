@@ -71,8 +71,59 @@ Define the task:
 Follow the task_definition.json in defining the task.
 
 
+Define the cluster:
+
 Create a cluster as a service, using the defined task.
 
+Choose "Capacity Provider Strategy"
+
+Use "Fargate" as the capacity provider.
+
+Platform Version: Latest
+
+Deployment Configuration: Service
+
+Task Definition: hummingbird (defined above), Revision, latest.
+
+Service name: Any string
+
+Service type: Replica
+
+Desired Tasks: 1
+
+Deployment options: Leave the default values (Rolling update)
+
+Deployment failure detection  
+Use the Amazon ECS deployment circuit breaker? Yes
+
+Rollback on failures? Yes
+
+Turn on Service Connect.
+
+Choose "Client and Server"
+
+Choose a namespace (hummingbird)
+
+Add port mappings and applications (hummingbird-80-tcp, hummingbird, hummingbird, 80)
+
+Networking: Choose the default VPC
+
+Choose the default security group
+
+Load balancer: Application Load Balancer.
+
+Create a new load balancer.
+
+Load balancer name: hummingbird
+
+container to load balance: (choose hummingbird 80:80)
+
+Listener: (Choose "Create new listener")
+Port: 80
+Target group name: hummingbird
+Everyone else left default
+
+Service autoscaling and Tags are optional and can be ignored.
 
 ## User Guidelines: Run the client
 
