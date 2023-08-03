@@ -164,6 +164,8 @@ Replace the urls to be the public urls of the deployed fargate service in client
 
 Run the client.py.
 
+Now you can check the logs from CloudWatch, as defined in the service definition.
+
 ````
 python client.py
 ````
