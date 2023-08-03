@@ -30,6 +30,8 @@ docker push pradeeban/hummingbird:1.0.3
 
 ## Deployment Guidelines: Deploying to AWS Fargate
 
+Choose region N. Virginia (us-east-1) at Amazon Elastic Container Service (ECS).
+
 Define an AWS policy (hummingbirds3):
 ````
 {
@@ -106,9 +108,17 @@ Choose a namespace (hummingbird)
 
 Add port mappings and applications (hummingbird-80-tcp, hummingbird, hummingbird, 80)
 
+Use log collection (Amazon Cloud Watch)
+
 Networking: Choose the default VPC
 
-Choose the default security group
+Create a new security group.
+Security group name: hummingbird
+Description: allow80
+
+Turn on Public IP.
+
+Allow "HTTP" (port 80) traffic from anywhere for inbound traffic.
 
 Load balancer: Application Load Balancer.
 
@@ -123,7 +133,30 @@ Port: 80
 Target group name: hummingbird
 Everyone else left default
 
-Service autoscaling and Tags are optional and can be ignored.
+Service autoscaling: (Select "Use service autoscaling")
+
+Minimum number of tasks: 1
+Maximum number of tasks: 3
+
+Choose Target Tracking
+
+Policy Name: hummingbird
+
+ECS service metric: ECSServiceAverageMemoryUtilization
+
+Target Value: 70
+
+Scale-out cooldown period: 300
+
+Scale-in cooldown period: 300
+
+Tags are optional and can be ignored.
+
+Start the service. Once it successfully, started, confirm that by going to the public IP address from your browser.
+
+The public IP address can be found from the cluster > service > Task.
+
+The public IP address should show the hummingbird home page.
 
 ## User Guidelines: Run the client
 
@@ -135,7 +168,7 @@ Run the client.py.
 python client.py
 ````
 
-To test the server container separately, you can run it locally or on a server, stand-alone. 
+To test the server container separately (instead of going through the steps above to deploy it on ECS), you can run it locally or on a server, stand-alone. 
 
 ````
 nohup sudo docker run --name hummingbird -p 80:80 pradeeban/hummingbird:1.0.3 > hummingbird.out &

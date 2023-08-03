@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:621508296309:task-definition/hummingbird:5",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:621508296309:task-definition/hummingbird:7",
     "containerDefinitions": [
         {
             "name": "hummingbird",
@@ -24,7 +24,7 @@
                 "options": {
                     "awslogs-create-group": "true",
                     "awslogs-group": "/ecs/hummingbird",
-                    "awslogs-region": "us-east-2",
+                    "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
             }
@@ -34,7 +34,7 @@
     "taskRoleArn": "arn:aws:iam::621508296309:role/hummingbirds3role",
     "executionRoleArn": "arn:aws:iam::621508296309:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 5,
+    "revision": 7,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -74,7 +74,12 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-05-12T07:52:00.266Z",
+    "registeredAt": "2023-02-18T21:29:26.782Z",
     "registeredBy": "arn:aws:iam::621508296309:user/pradeeban.kathiravelu@emory.edu",
-    "tags": []
+    "tags": [
+        {
+            "key": "ecs:taskDefinition:createdFrom",
+            "value": "ecs-console-v2"
+        }
+    ]
 }
